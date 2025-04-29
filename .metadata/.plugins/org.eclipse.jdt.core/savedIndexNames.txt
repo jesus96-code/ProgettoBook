@@ -1,0 +1,20 @@
+INDEX VERSION 1.131+C:\Users\sys14\OneDrive\Documents\GitHub\corso-git\.metadata\.plugins\org.eclipse.jdt.core
+3503451017.index
+2913175336.index
+3339481267.index
+2287321143.index
+164734725.index
+2547938251.index
+714552258.index
+3726199473.index
+871104719.index
+1669792213.index
+1514764625.index
+1223219716.index
+1025744873.index
+2957063522.index
+3382118065.index
+2928225652.index
+4063532685.index
+3394952284.index
+3661381815.index
