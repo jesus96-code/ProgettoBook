@@ -121,11 +121,11 @@ public class ConsoleService {
 
 	@Transactional
 	public Console removeGameFromConsole(Long consoleId, Long gameId) {
-		Console console = this.getConsoleById(consoleId); // mi dà il movieId
-		Games game = this.gameService.getGameById(gameId); // mi dà il actorId che voglio rimuovere
-		List<Games> games = console.getGames(); // prendi tutti gli attori del movie
-		games.remove(game); // rimuove l'attore preso prima
-		this.consoleRepository.save(console); // salva il movie
+		Console console = this.getConsoleById(consoleId); // mi dà il consoleId
+		Games game = this.gameService.getGameById(gameId); // mi dà il gameId che voglio rimuovere
+		List<Games> games = console.getGames(); // prendi tutti i giochi della console
+		games.remove(game); // rimuove il gioco preso prima
+		this.consoleRepository.save(console); // salva la console
 		return console;
 	}
 

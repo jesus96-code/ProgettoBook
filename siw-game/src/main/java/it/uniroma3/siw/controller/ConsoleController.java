@@ -196,9 +196,9 @@ public class ConsoleController {
 	@GetMapping(value="/admin/deleteReview/{reviewId}/{consoleId}")
 	public String deleteReview(@PathVariable("reviewId") Long reviewId, @PathVariable("consoleId")Long consoleId, Model model) {
 		this.reviewService.deleteReview(reviewId); //cancella il review
-		Console console = this.consoleService.getConsoleById(consoleId); //prende il film
-		model.addAttribute("console", console); //aggiungi il film al modello
-		model.addAttribute("reviews", console.getReviews()); //aggiungi la lista delle recensioni del film al modello
+		Console console = this.consoleService.getConsoleById(consoleId); //prende la console
+		model.addAttribute("console", console); //aggiungi la console al modello
+		model.addAttribute("reviews", console.getReviews()); //aggiungi la lista delle recensioni della console al modello
 		return "admin/formUpdateConsole.html";
 	}
 
