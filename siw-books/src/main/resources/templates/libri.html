@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Libro</title>
+		<link rel="stylesheet" href="/css/libri.css" />
+	</head>
+
+	<body>
+		<header>
+			<div th:if="${#request.userPrincipal}">
+				<span th:text="${#request.userPrincipal.principal.username}"></span>
+				<a href="/logout">Logout</a>
+			</div>
+			<div th:unless="${#request.userPrincipal}">
+				<a href="/login">Login</a>
+			</div>
+		</header>
+	
+		<div class="logo"><img src="/images/logo-siw.png" width="50%"/></div>
+		<div><a href="/"> Home </a></div>
+		<h1>Libro</h1>
+		<div th:if="${libri==null || libri.isEmpty()}">Non ci sono libro nel sistema</div>
+		<ul>
+			<li th:each="libro : ${libri}">
+				<a th:href="@{'/libro' + '/' + ${libro.id}}"
+					th:text="${libro.titolo} + ' (' + ${libro.annoPubblicazione} + ')'">Up! (2000)</a>
+			</li>
+		</ul>
+	</body>
+	
+
+</html>

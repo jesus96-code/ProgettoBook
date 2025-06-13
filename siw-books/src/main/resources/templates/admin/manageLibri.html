@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Libro</title>
+	<link rel="stylesheet" href="/css/manageLibri.css" />
+</head>
+
+<body>
+	<header>
+		<div th:if="${#request.userPrincipal}">
+			<span th:text="${#request.userPrincipal.principal.username}"></span>
+			<a href="/logout">Logout</a>
+		</div>
+		<div th:unless="${#request.userPrincipal}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+
+	<div class="logo"><a href="/"><img src="/images/logo-siw.png" width="50%" /></a></div>
+	<h1>Libro</h1>
+	<div></div>
+	<div th:if="${libri.isEmpty()}">Non ci sono libri nel sistema</div>
+	<ul>
+		<li th:each="libro : ${libri}">
+			<span th:text="${libro.titolo} + ' (' + ${libro.annoPubblicazione} + ')'">Up! (2000)</span>
+			<a th:href="@{'/admin/formUpdateLibro' + '/' + ${libro.id}}">Aggiorna</a>
+		</li>
+	</ul>
+</body>
+
+ <footer>
+	<div>
+		<a href="/admin/indexLibro">
+			<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Torna indietro</button>
+		</a>
+	</div>
+</footer>
+
+</html>

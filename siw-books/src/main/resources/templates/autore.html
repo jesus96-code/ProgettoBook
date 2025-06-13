@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Elenco autori</title>
+	<link rel="stylesheet" href="/css/autore.css" />
+</head>
+
+<body>
+	<header>
+		<div th:if="${#request.userPrincipal}">
+			<span th:text="${#request.userPrincipal.principal.username}"></span>
+			<a href="/logout">Logout</a>
+		</div>
+		<div th:unless="${#request.userPrincipal}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+
+	<div class="img"><a href="/"><img src="/images/logo-siw.png" width="50%"/></a></div>
+    <h1>Dettagli Autore</h1>
+    <div th:if="${autore}">
+        <span th:text="${autore.nome} + ' ' + ${autore.cognome}">Dino Risi</span>
+        <span th:text="'(' + ${autore.dataNascita} + ')'">20/20/2000</span>
+        <span><img width="10%"  th:src=${autore.fotografia} /></span>
+    </div>
+    <div th:unless="${autore}">Non esiste</div>
+  </body>
+  
+  <footer>
+  	<div>
+  		<a href="/autore">
+  			<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Torna indietro</button>
+  		</a>
+  	</div>
+  </footer>
+</html>
+
+

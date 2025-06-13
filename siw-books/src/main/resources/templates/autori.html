@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Autori</title>
+	<link rel="stylesheet" href="/css/autore.css" />
+</head>
+
+<body>
+	<header>
+		<div th:if="${#request.userPrincipal}">
+			<span th:text="${#request.userPrincipal.principal.username}"></span>
+			<a href="/logout">Logout</a>
+		</div>
+		<div th:unless="${#request.userPrincipal}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+
+	<div><a href="/"><img src="/images/logo-siw.png" width="50%"/></a></div>
+	<h1>Autori</h1>
+	<div th:if="${autori==null || autori.isEmpty()}">Non ci sono autori nel sistema</div>
+	<ul>
+		<li th:each="autore : ${autori}">
+			<a th:href="@{'/autore' + '/' + ${autore.id}}"
+				th:text="${autore.nome} + ' ' + ${autore.cognome}">Dino Risi</a>
+		</li>
+	</ul>
+</body>
+
+</html>

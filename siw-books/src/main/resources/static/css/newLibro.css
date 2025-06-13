@@ -1,0 +1,74 @@
+/* Reset dei margini e dei padding per il body */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Stile per l'header */
+header {
+    background-color: #0000ff;
+    color: white;
+    padding: 10px;
+    text-align: right;
+}
+
+/* Stile per i link nell'header */
+header a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.logo{
+	text-align:center;
+}
+
+/* Stile per il logo */
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+/* Stile per il contenitore principale del form */
+h1 {
+    text-align: center;
+}
+
+/* Stile per il form */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Stile per le etichette dei campi del form */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Stile per gli input del form */
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Stile per il pulsante di conferma */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Stile per i messaggi di errore */
+span.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}

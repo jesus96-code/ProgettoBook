@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    	<title>Libro</title>
+		<link rel="stylesheet" href="/css/stile.css" />
+  </head>
+
+<body>
+	<header>
+		<div th:if="${#request.userPrincipal}">
+			<span th:text="${#request.userPrincipal.principal.username}"></span>
+			<a href="/logout">Logout</a>
+		</div>
+		<div th:unless="${#request.userPrincipal}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+
+	<div><img src="/images/logo-siw.png" width="50%"/></div>
+	<div><a href="/"> Home </a></div>
+    <h1>Dettagli Libro: </h1>
+    <div th:if="${libro}">
+        <div><b>Titolo: </b><span th:text="${libro.titolo}">Up!</span></div>
+        <p th:text="'Anno di uscita: ' + ${libro.annoPubblicazione}">2000</p>
+        
+        <div th:if = "${libro.autori}"><b>Autori:</b>
+	       	<span th:each="autore: ${libro.autori}">
+          		<a th:href="@{'/autore/' + ${autore.id}}" th:text="${autore.nome}+' '+${autore.cognome}+' '"></a>
+          	</span>
+	    </div>
+	    <div th:if = "${libro.autori.isEmpty()}"> Non ci sono attori per questo film</div> 
+        
+        <!--  <h2>Regista: </h2>
+        <div th:if="${movie.director}">
+        	<span th:text="${movie.director.name} + ' ' +${movie.director.surname}"></span>
+      	</div>
+     	<div th:unless="${movie.director}">
+     		<h3>Nessun regista per questo film</h3>
+     	</div>-->
+    </div>
+        
+        <!--  <span><img width="5%" th:src=${movie.image} /></span> -->
+          <h2>Recensioni:</h2>
+    		<div th:if="${!libro.recensioni.isEmpty()}">
+	            <ul>
+	                <lu th:each="recensione: ${libro.recensioni}">
+	                	<li>
+	                    	<div>Titolo: <span th:text="${recensione.titolo}"></span></div>
+	                    </li>
+	                    <li>
+	                    	<div>Voto: <span th:text="${recensione.voto}"></span></div>
+	                    </li>
+	                    <li>
+	                    	<div>Commento: <span th:text="${recensione.commento}"></span></div>
+	                    </li>
+	                </lu>
+	            </ul>
+        	</div>
+	        <div th:unless="${!libro.recensioni.isEmpty()}">
+	            <h2>Non ci sono recensioni per questo film</h2>
+	        </div>	
+		    
+    
+    	<div th:unless="${libro}">Non esiste</div>
+  </body>
+  <footer>
+    <div class="footer_div">
+        <a href="/libro">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Torna indietro</button>
+        </a>
+    </div>
+</footer>
+</html>

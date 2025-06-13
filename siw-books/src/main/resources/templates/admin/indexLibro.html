@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		SiwLibro - Gestione Libro
+	</title>
+	<link rel="stylesheet" href="/css/indexLibro.css" />
+</head>
+
+<body>
+	<header>
+		<div th:if="${#request.userPrincipal}">
+			<span th:text="${#request.userPrincipal.principal.username}"></span>
+			<a href="/logout">Logout</a>
+		</div>
+		<div th:unless="${#request.userPrincipal}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+
+	<div><a href="/"><img src="/images/logo-siw.png" width="50%" /></a></div>
+	<h1>Gestione Libro</h1>
+	<div>
+		<a href="/admin/formNewLibro">Inserisci i dati di un libro</a>
+	</div>
+	<div>
+		<a href="/admin/manageLibri">Gestisci i libri</a>
+	</div>
+	<div>
+		<a href="/formSearchLibri">Cerca libro per anno</a>
+	</div>
+</body>
+
+<footer>
+	<div>
+		<a href="/">
+			<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Torna indietro</button>
+		</a>
+	</div>
+</footer>
+
+</html>

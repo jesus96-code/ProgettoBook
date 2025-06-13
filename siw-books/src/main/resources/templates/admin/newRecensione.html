@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title>Nuova recensione</title>
+	    <link rel="stylesheet" href="/css/stile.css" />
+	</head>
+	
+	<body>
+		<header>
+		    <div th:if="${#request.userPrincipal}">
+		        <span th:text="${#request.userPrincipal.principal.username}"></span>
+		        <a href="/logout">Logout</a>
+		    </div>
+		    <div th:unless="${#request.userPrincipal}">
+		        <a href="/login">Login</a>
+		    </div>
+		</header>
+	
+		<div><a href="/static"><img src="/images/logo-siw.png" width="50%" /></a></div>
+	
+		<h3>Nuova recensione:</h3>
+		<form th:action="@{'/user/recensione/' + ${libro.id}} " method="POST" th:object="${recensione}">
+		    <div th:if="${#fields.hasGlobalErrors()}">
+		        <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		    </div>
+		    <div>
+		        <label>Titolo:</label>
+		        <span><input type="text" th:field="${recensione.titolo}" /></span>
+		        <span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
+		    </div>
+		    <div>
+		        <label>Voto:</label>
+		        <span><input type="text" th:field="${recensione.voto}" /></span>
+		        <span th:if="${#fields.hasErrors('voto')}" th:errors="*{voto}"></span>
+		    </div>
+		    <div>
+		        <label>Commento:</label>
+		        <span><input type="text" th:field="${recensione.commento}" /></span>
+		        <span th:if="${#fields.hasErrors('commento')}" th:errors="*{commento}"></span>
+		    </div>
+		
+		    <div>
+		        <span><button type="submit">Conferma</button></span>
+		    </div>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		SiwBook - Homepage
+	</title>
+	<link rel="stylesheet" href="/css/admin.css" />
+</head>
+
+
+
+<body>
+	<header>
+	    <div th:if="${#request.userPrincipal}">
+	        <span th:text="${#request.userPrincipal.principal.username}"></span>
+	        <a href="/logout">
+	            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Logout</button>
+	        </a>
+	    </div>
+	    <div th:unless="${#request.userPrincipal}">
+	        <a href="/login">
+	            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Login</button>
+	        </a>
+	    </div>
+	</header>
+	<div style="text-align: center;"><img src="/images/logo-siw.png" width="50%" /></div>
+	
+	<h1>Menu amministratore</h1>
+	<div>
+		<a href="/admin/indexLibro">Operazioni sui libri</a>
+	</div>
+	<div>
+		<a href="/libro">Elenco libri</a>
+	</div>
+	<div>
+		<a href="/admin/indexAutore">Operazioni sugli autori</a>
+	</div>
+	<div>
+		<a href="/autore">Elenco Autori</a>
+	</div>
+	
+	<!--- Messaggio per l'amministratore--->
+	<div class="messaggio_admin">
+	
+	    <h1>Ben tornato alla pagina dell'amministratore!</h1>
+	        <h1>Qui puoi: </h1>
+	
+	        <p>
+	            Consultare gli archivi dei libri e degli autori;
+	        </p>
+	        <p>
+	            Effettuare inserimento sugli archivi dei libri e degli autori;
+	        </p>
+	        <p>
+	            Effettuare cancellazione sugli archivi dei libri e degli autori;
+	        </p>
+	        <p>
+	            Effettuare eventuali modifiche sugli archivi dei libri e degli autori;
+	        </p>
+	
+	</div>
+	
+</body>
+
+</html>
