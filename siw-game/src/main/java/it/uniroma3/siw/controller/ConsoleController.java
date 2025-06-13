@@ -117,7 +117,8 @@ public class ConsoleController {
 	}
 
 	@PostMapping(value="/console")
-	public String newMovie(@Valid @ModelAttribute("console") Console console, BindingResult bindingResult, Model model) {
+	public String newConsole(@Valid @ModelAttribute("console") Console console, 
+			BindingResult bindingResult, Model model) {
 		
 		this.consoleValidator.validate(console, bindingResult);
 		if (!bindingResult.hasErrors()) {

@@ -2,6 +2,8 @@ package it.uniroma3.siw.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,7 +43,7 @@ public class ReviewController {
 	 }
 	 
 	 @PostMapping("/user/review/{consoleId}")
-	    public String newReview(@ModelAttribute Review review, BindingResult bindingResult,
+	    public String newReview(@Valid @ModelAttribute Review review, BindingResult bindingResult,
 	                                   @PathVariable("consoleId") Long consoleId, Model model) {
 	        if (!bindingResult.hasErrors()) {
 	            Review newReview = this.reviewService.newReview(review, consoleId);

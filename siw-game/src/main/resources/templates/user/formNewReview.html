@@ -26,7 +26,7 @@
 		    <div>
 		        <label>Titolo:</label>
 		        <span><input type="text" th:field="${review.title}" /></span>
-		        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+		        <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
 		        
 		    </div>
 		    <div>
@@ -37,7 +37,7 @@
 		    <div>
 		        <label>Commento:</label>
 		        <span><input type="text" th:field="${review.comment}" /></span>
-		        <span th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}"></span>
+		        <p th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}"></p>
 		    </div>
 		
 		    <div>
