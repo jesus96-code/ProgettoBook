@@ -213,10 +213,10 @@ public class ConsoleController {
 	@GetMapping("/console")
 	public String getConsoles(Model model) {
 		
-    	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
+//    	UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
 		model.addAttribute("consoles", this.consoleRepository.findByOrderByNameAsc());
-		model.addAttribute("user", credentials.getUser());
+//		model.addAttribute("user", credentials.getUser());
 		return "consoles.html";
 	}
 	
