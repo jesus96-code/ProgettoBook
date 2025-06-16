@@ -27,3 +27,9 @@ Si presuppone che l'utente principale sia quello registrato con appositi permess
 
 Scenario principale di successo: E' altresì necessario ovviamente loggarsi al sistema con le proprie credenziali che verranno riconosciute dal sistema come utenza amministrazione. L'amministratore (o amministrazione) crea un libro dall'apposita voce di menu, successivamente imposta un titolo, anno di pubblicazione e una o più immagini.
 
+Caso d'uso UC3: Inserisci nuova recensione
+Attore principale: utente registrato
+Si presuppone che l'utente principale sia quello registrato con appositi permessi di "utente registrato", registrato con un apposito ruolo su DB in grado di effettuare operazioni di recensioni a quel libro.
+
+Scenario principale di successo: L'utente registrato consulta l'elenco dei libri, attraverso il menu. Il sistema mostra all'utente registrato l'elenco dei libri. L'utente seleziona un libro, il sistema mostra il libro nel dettaglio e l'utente ha la possibilità di aggiungere uno o più recensioni.
+
