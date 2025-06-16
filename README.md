@@ -11,3 +11,19 @@ Ai libri possono essere associate recensioni scritte da utenti registrati. Una r
 2. Obiettivi
 
 L'obbiettivo è creare un sistema informativo su Web che contempli i seguenti casi d'uso che seguono:
+
+3.Casi d'uso 
+
+Caso d'uso UC1: Consulta informazioni  
+Attore primario: utente non registrato
+Un qualunque accesso anonimo (che può offrire direttamente il portale senza essere necessariamente registrato) può consultare tutte le informazioni sui libri (incluse le recensioni) e sugli autori, ma non possono aportare nessuna tipo di modifica ai dati.
+
+Scenario principale di successo: 
+Il sistema mostra i dettagli della richiesta visualizzando la pagina. L'utente ripete i passi precedente un numero indefinito di volte.
+
+Caso d'uso UC2: Inserisci nuovo libro
+Attore primario: l'amministratore
+Si presuppone che l'utente principale sia quello registrato con appositi permessi di 'amministrazione', registrato con apposito ruolo su DB in grado di effettuare operazioni di inserimento.
+
+Scenario principale di successo: E' altresì necessario ovviamente loggarsi al sistema con le proprie credenziali che verranno riconosciute dal sistema come utenza amministrazione. L'amministratore (o amministrazione) crea un libro dall'apposita voce di menu, successivamente imposta un titolo, anno di pubblicazione e una o più immagini.
+
