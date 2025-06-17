@@ -20,11 +20,14 @@
 	<div class="logo"><a href="/"><img src="/images/logo-siw.png" width="50%" /></a></div>
 	<h1>Libro</h1>
 	<div></div>
-	<div th:if="${libri.isEmpty()}">Non ci sono libri nel sistema</div>
+	<div th:if="${libri != null and libri.isEmpty()}">Non ci sono libri nel sistema</div>
 	<ul>
 		<li th:each="libro : ${libri}">
 			<span th:text="${libro.titolo} + ' (' + ${libro.annoPubblicazione} + ')'">Up! (2000)</span>
 			<a th:href="@{'/admin/formUpdateLibro' + '/' + ${libro.id}}">Aggiorna</a>
+			<form th:action="@{'/admin/deleteLibro/' + ${libro.id}}" method="post" style="display:inline">
+    			<button type="submit" onclick="return confirm('Sei sicuro di voler eliminare questo libro?')">Elimina</button>
+			</form>
 		</li>
 	</ul>
 </body>

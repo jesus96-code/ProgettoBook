@@ -28,7 +28,7 @@
           		<a th:href="@{'/autore/' + ${autore.id}}" th:text="${autore.nome}+' '+${autore.cognome}+' '"></a>
           	</span>
 	    </div>
-	    <div th:if = "${libro.autori.isEmpty()}"> Non ci sono attori per questo film</div> 
+	    <div th:if = "${libro.autori != null  and libro.autori.isEmpty()}"> Non ci sono attori per questo film</div>
         
         <!--  <h2>Regista: </h2>
         <div th:if="${movie.director}">
@@ -41,7 +41,7 @@
         
         <!--  <span><img width="5%" th:src=${movie.image} /></span> -->
           <h2>Recensioni:</h2>
-    		<div th:if="${!libro.recensioni.isEmpty()}">
+    		<div th:if="${libro.recensioni != null and !libro.recensioni.isEmpty()}">
 	            <ul>
 	                <lu th:each="recensione: ${libro.recensioni}">
 	                	<li>
@@ -56,7 +56,7 @@
 	                </lu>
 	            </ul>
         	</div>
-	        <div th:unless="${!libro.recensioni.isEmpty()}">
+	        <div th:unless="${libro.recensioni != null and !libro.recensioni.isEmpty()}">
 	            <h2>Non ci sono recensioni per questo film</h2>
 	        </div>	
 		    

@@ -70,6 +70,11 @@ public class LibroService {
 	}
 	
 	@Transactional
+	public void deleteLibro(Long id) {
+		libroRepository.deleteById(id);
+	}
+	
+	@Transactional
 	public Libro removeAutoreFromLibro(Long libroId, Long autoreId) {
 		Libro libro = this.getLibroById(libroId);
 		Autore autore = this.autoreService.getAutoreById(autoreId);
@@ -85,5 +90,9 @@ public class LibroService {
 		Recensione recensione = this.recensioneService.getRecensioneById(recensioneId);
 		libro.getRecensioni().add(recensione);
 		return this.libroRepository.save(libro);
+	}
+
+	public void deleteById(Long libroId) {
+		this.libroRepository.deleteById(libroId);
 	}
 }

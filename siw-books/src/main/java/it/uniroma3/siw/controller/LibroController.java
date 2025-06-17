@@ -199,5 +199,11 @@ public class LibroController {
 		model.addAttribute("recensione", libro.getRecensioni());
 		return "admin/formUpdateLibro.html";
 	}
+	
+	@PostMapping(value="/admin/deleteLibro/{libroId}")
+	public String deleteLibro(@PathVariable("libroId") Long libroId) {
+		this.libroService.deleteById(libroId);
+		return "redirect:/libro";
+	}
 
 }
