@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>
 		SiwBook - Homepage
 	</title>
+	<title>Contattaci</title>
 	<link rel="stylesheet" href="/css/index.css" />
 </head>
-
 <body>
+
 	<header>
 		<div th:if="${#request.userPrincipal}">
 			<span th:text="${#request.userPrincipal.principal.username}"></span>
@@ -19,19 +19,11 @@
 		</div>
 	</header>
 	
-	<main>
-		<div class = "logo"><img src="/images/logo-siw.png" width="50%" /></div>
-		<h1>Consulta l'archivio</h1>
-		<div>
-			<a href="/libro">Elenco Libro</a>
-		</div>
-		<div>
-			<a href="/autore">Elenco Autori</a>
-		</div>
-	</main>
+	<div class = "logo"><a href="/"><img src="/images/logo-siw.png" width="50%" /></a></div>
 	
-	<div th:insert="fragments/footer :: footer"></div>
+	<h1>Contattaci</h1>
+	<p>Puoi scriverci a: info@siwbook.it</p>
+	<a href="/">Torna alla homepage</a>
 	
 </body>
-
 </html>

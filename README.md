@@ -15,7 +15,7 @@ L'obbiettivo è creare un sistema informativo su Web che contempli i seguenti ca
 3.Casi d'uso 
 
 Caso d'uso UC1: Consulta informazioni  
-Attore primario: utente occasionale
+Attore primario: utente occasionale 
 Un qualunque accesso anonimo (che può offrire direttamente il portale senza essere necessariamente registrato) può consultare tutte le informazioni sui libri (incluse le recensioni) e sugli autori, ma non possono aportare nessuna tipo di modifica ai dati.
 
 Scenario principale di successo: 

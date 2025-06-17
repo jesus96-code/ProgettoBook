@@ -34,6 +34,16 @@ public class AuthenticationController {
 	public String showLoginForm (Model model) {
 		return "formLogin";
 	}
+	
+	@GetMapping(value= "/chiSiamo")
+	public String chiSiamo() {
+		return "chiSiamo.html";
+	}
+	
+	@GetMapping(value="/contattaci")
+	public String contattaci() {
+		return "contattaci.html";
+	}
 
 	@GetMapping(value = "/") 
 	public String index(Model model) {
