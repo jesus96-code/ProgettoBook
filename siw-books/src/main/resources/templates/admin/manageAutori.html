@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Autore</title>
+	<link rel="stylesheet" href="/css/manageAutori.css" />
+</head>
+
+<body>
+	<header>
+		<div th:if="${#request.userPrincipal}">
+			<span th:text="${#request.userPrincipal.principal.username}"></span>
+			<a href="/logout">Logout</a>
+		</div>
+		<div th:unless="${#request.userPrincipal}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+
+	<div class="logo"><a href="/"><img src="/images/logo-siw.png" width="50%" /></a></div>
+	<h1>Autore</h1>
+	<div></div>
+	<div th:if="${autori.isEmpty()}">Non ci sono autori nel sistema</div>
+	<ul>
+		<li th:each="autore : ${autori}">
+			<span th:text="${autore.nome} + ' ' + ${autore.cognome} + ' (' + ${#temporals.format(autore.dataNascita, 'dd-MM-yyyy', 'it')} + ')'">Up awfawf (1972-06-03)</span>
+			<a th:href="@{'/admin/formUpdateAutori' + '/' + ${autore.id}}">Aggiorna</a>
+		</li>
+	</ul>
+</body>
+
+ <footer>
+	<div>
+		<a href="/admin/indexAutore">
+			<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Torna indietro</button>
+		</a>
+	</div>
+</footer>
+
+</html>

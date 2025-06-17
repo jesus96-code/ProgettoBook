@@ -9,13 +9,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.model.Autore;
+import it.uniroma3.siw.model.Libro;
 import it.uniroma3.siw.repository.AutoreRepository;
+import it.uniroma3.siw.service.AutoreService;
 
 @Controller
 public class AutoreController {
 	
 	@Autowired
 	private AutoreRepository autoreRepository;
+	
+	@Autowired
+	private AutoreService autoreService;
 	
 	@GetMapping(value = "/admin/indexAutore")
 	public String indexAutore() {
@@ -26,6 +31,12 @@ public class AutoreController {
 	public String formNewAutore(Model model) {
 		model.addAttribute("autore", new Autore());
 		return "admin/formNewAutore.html";
+	}
+	
+	@GetMapping(value="/admin/manageAutori")
+	public String manageAutori(Model model) {
+		model.addAttribute("autori", this.autoreRepository.findAll());
+		return "admin/manageAutori.html";
 	}
 	
 	@PostMapping("/admin/autore")
@@ -50,5 +61,20 @@ public class AutoreController {
 	public String getAutore(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("autore", this.autoreRepository.findById(id).get());
 		return "autore.html";
+	}
+	
+	@GetMapping(value="/admin/formUpdateAutori/{id}")
+	public String formUpdateAutore(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("autore", autoreService.getAutoreById(id));
+		return "admin/formUpdateAutore.html";
+	}
+	
+	@PostMapping(value="/admin/updateAutore/{autoreId}")
+	public String updateAutore(@ModelAttribute("autore") Autore newAutore, @PathVariable("autoreId") Long autoreId, Model model) {
+		Autore oldAutore = this.autoreService.getAutoreById(autoreId);
+		Autore autore = this.autoreService.updateAutore(oldAutore, newAutore);
+		this.autoreService.saveAutore(autore);
+		model.addAttribute("autore", autore);
+		return "admin/formUpdateAutore.html";
 	}
 }

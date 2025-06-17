@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,18 @@ public class AutoreService {
 	@Transactional
 	public Autore getAutoreById(Long autoreId) {
 		return autoreRepository.findById(autoreId).get();
+	}
+	
+	@Transactional
+	public Autore updateAutore(Autore oldAutore, Autore newAutore) {
+		oldAutore.setNome(newAutore.getNome());
+		oldAutore.setCognome(newAutore.getCognome());
+		oldAutore.setDataNascita(newAutore.getDataNascita());
+		return this.autoreRepository.save(oldAutore);
+	}
+	
+	public void saveAutore(@Valid Autore autore) {
+		this.autoreRepository.save(autore);
 	}
 
 }

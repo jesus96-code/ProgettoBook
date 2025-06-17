@@ -27,16 +27,20 @@
 
 <div id="flex-container">
     <div class="actor-section">
-        <div th:if="${libro}">
-            <h1 th:text="'Aggiorna film'+ ' *'+ ${libro.titolo} + '*'"></h1>
-            <form th:action="@{'/admin/updateLibro/' + ${libro.id}}" method="POST" th:object="${libro}">
+        <div th:if="${autore}">
+            <h1 th:text="'Aggiorna autore'+ ' *'+ ${autore.nome} + ${autore.cognome} + '*'"></h1>
+            <form th:action="@{'/admin/updateAutore/' + ${autore.id}}" method="POST" th:object="${autore}">
                 <div>
-                    <label>Titolo: </label>
-                    <input type="text" th:field="${libro.titolo}"/>
+                    <label>Nome: </label>
+                    <input type="text" th:field="${autore.nome}"/>
                 </div>
                 <div>
-                    <label>Anno di uscita:</label>
-                    <input type="number" th:field="${libro.annoPubblicazione}"/>
+                    <label>Cognome: </label>
+                    <input type="text" th:field="${autore.cognome}"/>
+                </div>
+                <div>
+                    <label>Data di nascita:</label>
+                    <input type="date" th:field="${autore.dataNascita} "/>
                 </div>
                 <button class="btn btn-outline-primary" type="submit">Conferma</button>
             </form>
@@ -49,7 +53,7 @@
                 <a th:href="@{'/admin/addAutore/' + ${libro.id}}">Aggiungi regista</a>
             </div>-->
 
-            <div>
+            <!--  <div>
                 <label>Autori: </label>
                 
                 <div th:each="autore: ${libro.autori}">
@@ -65,12 +69,12 @@
                 <!--  <div>
                		<!--<span th:text="'Numero di attori: ' + ${actorCount}"> </span>
                		<a th:href="@{'/admin/conteggioActors/' + ${movie.id}}">Quanti actors ha la film</a>
-               	</div> -->
-            </div>
+               	</div> 
+            </div>-->
         </div>
     </div>
 
-        <div class="review-section">
+        <!--  <div class="review-section">
 	        <div th:if="${libro}">
 	            <span>Recensioni: </span>
 	            <div th:unless="${!libro.recensioni.isEmpty()}">Non ci sono recensioni da cancellare</div>
@@ -80,13 +84,14 @@
 	            </div>
 	        </div>
         </div>
-    	<div th:unless="${libro}">Libro non esistente</div>
+    	<div th:unless="${libro}">Libro non esistente</div>-->
 </div>
 </body>
 
+
 <footer>
     <div class="footer_div">
-        <a href="/admin/manageLibri">
+        <a href="/admin/manageAutori">
             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Torna indietro</button>
         </a>
     </div>
