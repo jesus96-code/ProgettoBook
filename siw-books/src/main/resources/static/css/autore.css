@@ -1,61 +1,106 @@
-/* Reset di alcuni stili predefiniti dei browser */
-body, h1, h2, h3, p, div, span, img, a {
-    margin: 0;
-    padding: 0;
-}
-
+/* Reset base */
 body {
+    margin: 0;
+    padding-bottom: 120px; /* spazio per il footer fisso */
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9;
     color: #333;
 }
 
+/* Header */
 header {
-    background-color: #0000ff;
-    color: #fff;
-    padding: 10px;
-    text-align: right;
+    background-color: #007bff;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 header a {
-    color: #fff;
+    color: white;
     text-decoration: none;
-    margin-left: 10px;
+    margin-left: 20px;
+    font-weight: bold;
 }
 
-.img {
-    text-align: center;
-    /*margin: 20px 0;*/
-    width: 90%;
+header a:hover {
+    text-decoration: underline;
 }
 
+/* Logo */
+img {
+    display: block;
+    margin: 30px auto;
+    max-width: 300px;
+    height: auto;
+}
+
+/* Titolo pagina */
 h1 {
     text-align: center;
     color: #333;
+    margin-bottom: 20px;
 }
 
-div {
-    margin: 10px;
+/* Lista autori */
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
     text-align: center;
 }
 
-a {
+li a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+li a:hover {
+    text-decoration: underline;
+}
+
+/* Messaggio "nessun autore" */
+.empty-message {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+div{
+	text-align: center;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    margin: 0 15px;
     color: #007bff;
     text-decoration: none;
 }
 
-a:hover {
+footer a:hover {
     text-decoration: underline;
-}
-
-span {
-    display: block;
-    margin-bottom: 10px;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--  <!DOCTYPE html>
 <html>
 <head>
 	<title>
@@ -25,5 +25,46 @@
 	<p>Puoi scriverci a: info@siwbook.it</p>
 	<a href="/">Torna alla homepage</a>
 	
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contattaci - SiwBook</title>
+    <link rel="stylesheet" href="/css/contattaci.css" />
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="auth-info" th:if="${#request.userPrincipal}">
+            <span th:text="${#request.userPrincipal.principal.username}"></span>
+            <a href="/logout">Logout</a>
+        </div>
+        <div class="auth-info" th:unless="${#request.userPrincipal}">
+            <a href="/login">Login</a>
+        </div>
+    </header>
+
+    <div class="logo-container">
+        <a href="/"><img src="/images/logo-siw.png" alt="Logo SiwBook" class="logo" /></a>
+    </div>
+
+    <main class="content">
+        <h1>Contattaci</h1>
+        <p>Hai bisogno di assistenza o vuoi inviarci un feedback? Puoi scriverci:</p>
+        <ul>
+            <li><strong>Email:</strong> info@siwbook.it</li>
+            <li><strong>Telefono:</strong> +39 123 456 7890</li>
+            <li><strong>Indirizzo:</strong> Via dei Libri 42, Roma, Italia</li>
+        </ul>
+
+        <div class="back-link">
+            <a href="/"><button>Torna alla homepage</button></a>
+        </div>
+    </main>
+
+    <div th:insert="fragments/footer :: footer"></div>
 </body>
 </html>

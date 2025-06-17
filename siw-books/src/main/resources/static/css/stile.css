@@ -1,62 +1,137 @@
-body { 
-    font-family: Arial;
-    color:rgb(128, 128, 128);
-    background-color: #f4f4f4;
+/* Reset base */
+body {
+    margin: 0;
+    padding-bottom: 120px; /* spazio per il footer fisso */
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
-a { 
-	text-decoration: none; 
-    color: darkgrey;
-   
-}
-
-a:hover { 
-	text-decoration: underline;
-}
-
-label {
-	width: 8em;
-	display: inline-block;
-}
-
+/* Header */
 header {
-  background-color: rgb(0, 0, 255);
-  color: white;
-  height: 2em;
-  margin-bottom: 1em;
-  padding: 0.2em;
-  text-align: right;
-}
-
-header a { 
-	text-decoration: none; 
+    background-color: #007bff;
     color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+/* Logo */
+img {
+    display: block;
+    margin: 30px auto;
+    max-width: 300px;
+    height: auto;
+}
+
+/* Link Home */
+a[href="/"] {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a[href="/"]:hover {
+    text-decoration: underline;
+}
+
+/* Titoli */
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Dati libro */
+div span, div b, label {
+    font-size: 1.1em;
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+}
+
+div a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 3px;
+}
+
+div a:hover {
+    text-decoration: underline;
+}
+
+/* Lista recensioni */
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.div button {
+	text-align: center;
+}
+
+/* Pulsante "Torna indietro" */
+.footer_div {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.footer_div button {
+    padding: 10px 20px;
     font-size: 1em;
-    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
-header span{
-	text-align: right;
-	margin-top: 2em;
+.footer_div button:hover {
+    background-color: #0056b3;
 }
 
-/* immagine logo-siw.png*/
-.logo{
-	text-align:center;
+/* Footer importato */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
 }
 
-.img img {
-    max-width: 100%;
+footer a {
+    margin: 0 15px;
+    color: #007bff;
+    text-decoration: none;
 }
 
-span {
-	display: block;
-	text-align: left;
-	margin: 10px;
-}
-
-span img{
-	display: block;
-	max-width: 50%;
-	text-align: right;
+footer a:hover {
+    text-decoration: underline;
 }

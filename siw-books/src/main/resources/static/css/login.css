@@ -1,86 +1,111 @@
-/* Reset di alcuni stili predefiniti dei browser */
-body, h1, h2, h3, p, div, form, input, button {
-    margin: 0;
-    padding: 0;
-}
+/* login.css */
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #fafafa;
     color: #333;
+    margin: 20px;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
-header a {
-    color: #fff;
+header a, header span {
+    color: #007bff;
+    font-weight: 600;
     text-decoration: none;
-    margin-left: 10px;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+div > a img {
+    display: block;
+    margin: 30px auto;
+    max-width: 300px;
 }
 
 h1 {
     text-align: center;
-    color: #333;
-}
-
-div {
-    margin: 10px;
-    text-align:center;
-}
-
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
+    color: #222;
+    margin-bottom: 30px;
 }
 
 form {
-    max-width: 400px;
+    max-width: 350px;
     margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
 }
 
 form div {
     margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-form span {
+form span:first-child {
+    flex: 1;
+    font-weight: 600;
+}
+
+form span:last-child input {
+    flex: 2;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+form span:last-child input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+div {
+    color: #d9534f;
+    font-style: italic;
+    text-align: center;
     display: block;
-    margin-bottom: 5px;
+    margin-top: -10px;
+    margin-bottom: 10px;
 }
 
-form input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-}
-
-form button {
+button {
     width: 100%;
     padding: 10px;
     background-color: #007bff;
-    color: #fff;
     border: none;
-    border-radius: 3px;
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-form button:hover {
+button:hover {
     background-color: #0056b3;
 }
 
-form span.error {
-    color: #ff0000;
-    font-size: 14px;
+div > a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+div > a:hover {
+    text-decoration: underline;
 }

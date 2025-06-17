@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--  <!DOCTYPE html>
 <html>
 <head>
 	<title>
@@ -24,5 +24,54 @@
 	<h1>Chi siamo</h1>
 	<p>Siamo un gruppo di appassionati di libri...</p>
 	<a href="/">Torna alla homepage</a>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi siamo - SiwBook</title>
+    <link rel="stylesheet" href="/css/chiSiamo.css" />
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="auth-info" th:if="${#request.userPrincipal}">
+            <span th:text="${#request.userPrincipal.principal.username}"></span>
+            <a href="/logout">Logout</a>
+        </div>
+        <div class="auth-info" th:unless="${#request.userPrincipal}">
+            <a href="/login">Login</a>
+        </div>
+    </header>
+
+    <div class="logo-container">
+        <a href="/"><img src="/images/logo-siw.png" alt="Logo SiwBook" class="logo" /></a>
+    </div>
+
+    <main class="content">
+        <h1>Chi siamo</h1>
+        <p>
+            Siamo un gruppo di studenti e sviluppatori appassionati di lettura e tecnologia.
+            Il progetto <strong>SiwBook</strong> nasce con l'obiettivo di digitalizzare e semplificare
+            la consultazione dei libri e dei loro autori.
+        </p>
+
+        <h2>Il nostro obiettivo</h2>
+        <p>
+            Offrire una piattaforma semplice e intuitiva per gestire archivi editoriali.
+            Crediamo che la tecnologia debba essere al servizio della cultura.
+        </p>
+
+        <h2>Contatti</h2>
+        <p>Per qualsiasi informazione, visita la pagina <a href="/contattaci">Contattaci</a>.</p>
+
+        <div class="back-link">
+            <a href="/"><button>Torna alla homepage</button></a>
+        </div>
+    </main>
+
+    <div th:insert="fragments/footer :: footer"></div>
 </body>
 </html>

@@ -21,7 +21,7 @@
     <h1>Dettagli Libro: </h1>
     <div th:if="${libro}">
         <div><b>Titolo: </b><span th:text="${libro.titolo}">Up!</span></div>
-        <p th:text="'Anno di uscita: ' + ${libro.annoPubblicazione}">2000</p>
+        <div><b>Anno di uscita:</b><span th:text="${libro.annoPubblicazione}">2000</span></div>
         
         <div th:if = "${libro.autori}"><b>Autori:</b>
 	       	<span th:each="autore: ${libro.autori}">
