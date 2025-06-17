@@ -24,13 +24,17 @@
         <span><img width="10%"  th:src=${autore.fotografia} /></span>
     </div>
     <div th:unless="${autore}">Non esiste</div>
+    
   </body>
   
   <footer>
-  	<div>
+  	<div style="margin-botom: 60px;">
   		<a href="/autore">
   			<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Torna indietro</button>
   		</a>
+  	</div>
+  	<div style="height: 50px;">
+  		<div th:insert="fragments/footer :: footer"></div>
   	</div>
   </footer>
 </html>

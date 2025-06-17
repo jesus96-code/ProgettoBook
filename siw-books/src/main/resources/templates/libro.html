@@ -62,12 +62,23 @@
 		    
     
     	<div th:unless="${libro}">Non esiste</div>
+    	
+    	
   </body>
+  
+  
+  
   <footer>
     <div class="footer_div">
         <a href="/libro">
             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Torna indietro</button>
         </a>
     </div>
-</footer>
+  </footer>
+  
+  <div style="height: 80px;"></div>
+  
+  <div th:insert="fragments/footer :: footer"></div>
+  
+   
 </html>

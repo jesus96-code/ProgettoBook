@@ -26,6 +26,7 @@ header a {
 .img {
     text-align: center;
     /*margin: 20px 0;*/
+    width: 90%;
 }
 
 h1 {
@@ -35,6 +36,7 @@ h1 {
 
 div {
     margin: 10px;
+    text-align: center;
 }
 
 a {
