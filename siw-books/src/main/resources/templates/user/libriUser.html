@@ -25,8 +25,8 @@
 	  <a href="/"><img src="/images/logo-siw.png" width="50%"/></a></div> -->
 	
 	<div class="general">
-	  <h1>Film presenti nel database</h1>
-	  <div th:if="${libri == null || libri.isEmpty()}">Non ci sono film nel sistema</div>
+	  <h1>Libri presenti nel database</h1>
+	  <div th:if="${libri == null || libri.isEmpty()}">Non ci sono libri nel sistema</div>
 	 
 	    <ul>
 	      <li th:each="libro : ${libri}">

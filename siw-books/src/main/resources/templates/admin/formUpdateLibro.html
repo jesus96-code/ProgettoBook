@@ -40,14 +40,6 @@
                 </div>
                 <button class="btn btn-outline-primary" type="submit">Conferma</button>
             </form>
-            <!--  <div th:if="${libro.autore}">
-                <span>Regista: </span>
-                <span th:text="${libro.autore.nome} + ' ' + ${libro.autore.cognome}">Steven Spielberg</span>
-                <a th:href="@{'/admin/addDirector/' + ${libro.id}}">Modifica regista</a>
-            </div>
-            <div th:unless="${libro.autore}">
-                <a th:href="@{'/admin/addAutore/' + ${libro.id}}">Aggiungi regista</a>
-            </div>-->
 
             <div>
                 <label>Autori: </label>
@@ -62,10 +54,6 @@
                     <button class="btn btn-outline-primary" type="submit">Modifica</button>
                 </a>
                 
-                <!--  <div>
-               		<!--<span th:text="'Numero di attori: ' + ${actorCount}"> </span>
-               		<a th:href="@{'/admin/conteggioActors/' + ${movie.id}}">Quanti actors ha la film</a>
-               	</div> -->
             </div>
         </div>
     </div>

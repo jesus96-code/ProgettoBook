@@ -14,6 +14,8 @@ L'obbiettivo è creare un sistema informativo su Web che contempli i seguenti ca
 
 3.Casi d'uso 
 
+UTENTE OCCASSIONALE
+
 Caso d'uso UC1: Consulta informazioni  
 Attore primario: utente occasionale 
 Un qualunque accesso anonimo (che può offrire direttamente il portale senza essere necessariamente registrato) può consultare tutte le informazioni sui libri (incluse le recensioni) e sugli autori, ma non possono aportare nessuna tipo di modifica ai dati.
@@ -21,33 +23,53 @@ Un qualunque accesso anonimo (che può offrire direttamente il portale senza ess
 Scenario principale di successo: 
 Il sistema mostra i dettagli della richiesta visualizzando la pagina. L'utente ripete i passi precedente un numero indefinito di volte.
 
-Caso d'uso UC2: Inserisci nuovo libro
+*Caso d'uso UC2: Contatti
+Attore primario: utente occasionale
+
+Scenario principale di successo: L'utente seleziona i contatti del sito web. Il sistema mostra la form e l'utente inserisce il proprio nome, email e richieste. Il sistema inoltra tutto all'indirizzo email del sito.
+
+*Caso d'uso UC3: Chi siamo
+Attore primario: utente occasionale
+
+Scenario principale di successo: L'utente seleziona le informazioni del sito e il sistema mostra la pagina con le informazioni.
+
+AMMINISTRATORE
+
+Caso d'uso UC4: Inserisci nuovo libro
 Attore primario: l'amministratore
 Si presuppone che l'utente principale sia quello registrato con appositi permessi di 'amministrazione', registrato con apposito ruolo su DB in grado di effettuare operazioni di inserimento.
 
 Scenario principale di successo: E' altresì necessario ovviamente loggarsi al sistema con le proprie credenziali che verranno riconosciute dal sistema come utenza amministrazione. L'amministratore (o amministrazione) crea un libro dall'apposita voce di menu, successivamente imposta un titolo, anno di pubblicazione e una o più immagini.
 
-Caso d'uso UC3: Inserisci nuova recensione
-Attore principale: utente registrato
-Si presuppone che l'utente principale sia quello registrato con appositi permessi di "utente registrato", registrato con un apposito ruolo su DB in grado di effettuare operazioni di recensioni a quel libro.
-
-Scenario principale di successo: L'utente registrato consulta l'elenco dei libri, attraverso il menu. Il sistema mostra all'utente registrato l'elenco dei libri. L'utente seleziona un libro, il sistema mostra il libro nel dettaglio e l'utente ha la possibilità di aggiungere uno o più recensioni.
-
-Caso d'uso UC4: Aggiornamento libro
+*Caso d'uso UC5: Aggiornamento libro
 Attore primario: l'amministratore
 Si presuppone che l'utente principale sia quello registrato con appositi permessi di 'amministrazione', registrato con apposito ruolo su DB in grado di effettuare operazioni di aggiornamenti.
 
 Scenario principale di successo: E' altresì necessario ovviamente loggarsi al sistema con le proprie credenziali che verranno riconosciute dal sistema come utenza amministrazione. L'amministratore (o amministrazione) aggiorna un libro dall'apposita voce di menu, successivamente può aggiornare il titolo, l'anno di uscita e potrebbe anche aggiornare gli autori del libro.
 
-Caso d'uso UC5: Contatti
-Attore primario: utente occasionale
+Caso d'uso UC6: Cancellazione libro
+Attore primario: l'amministratore
+Si presuppone che l'utente principale sia quello registrato con appositi permessi di 'amministrazione', registrato con apposito ruolo su DB in grado di effettuare operazioni di cancellazione.
 
-Scenario principale di successo: L'utente seleziona i contatti del sito web. Il sistema mostra la form e l'utente inserisce il proprio nome, email e richieste. Il sistema inoltra tutto all'indirizzo email del sito.
+Scenario principale di successo: E' altresì necessario ovviamente loggarsi al sistema con le proprie credenziali che verranno riconosciute da sistema come utenza amministrazione. L'amministratore(o amministrazione) cancella un libro, questa influenza anche ai dati che sono contenuti al DB.
 
-Caso d'uso UC6: Chi siamo
-Attore primario: utente occasionale
+UTENTE REGISTRATO
 
-Scenario principale di successo: L'utente seleziona le informazioni del sito e il sistema mostra la pagina con le informazioni.
+Caso d'uso UC7: Inserisci nuova recensione
+Attore principale: utente registrato
+Si presuppone che l'utente principale sia quello registrato con appositi permessi di "utente registrato", registrato con un apposito ruolo su DB in grado di effettuare operazioni di recensioni a quel libro.
+
+Scenario principale di successo: L'utente registrato consulta l'elenco dei libri, attraverso il menu. Il sistema mostra all'utente registrato l'elenco dei libri. L'utente seleziona un libro, il sistema mostra il libro nel dettaglio e l'utente ha la possibilità di aggiungere uno o più recensioni.
+
+Caso d'uso UC8: Consulta informazione
+Attore principale: utente registrato
+Si presuppone che l'utente principale sia quello registrato con appositi permessi di "utente registrato", registrato con apposito ruolo su DB in grado di consultare le informazioni presenti.
+
+Scenario principale di successo: L'utente registrato, come un utente occasionale, può consultare le informazioni sui libri e sugli autori presenti nel sito web 
+
+
+
+
 
 
 
