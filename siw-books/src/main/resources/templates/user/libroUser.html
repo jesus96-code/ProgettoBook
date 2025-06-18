@@ -28,7 +28,7 @@
 
 </div>
 <h1 th:if="${libro}" th:text="${libro.titolo+ ' (' + libro.annoPubblicazione+ ')'}">Dettagli Libro</h1>
-
+	<span><img width="10%"  th:src=${libro.urlImage} /></span>
 <div th:unless="${libro}">Non esiste</div>
 
 <div id="flex-container">
