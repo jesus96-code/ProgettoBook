@@ -109,3 +109,8 @@ div > a {
 div > a:hover {
     text-decoration: underline;
 }
+
+a{
+	align-items: center;
+	justify-content: center;
+}

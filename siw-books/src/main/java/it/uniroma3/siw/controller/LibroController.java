@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -169,11 +170,52 @@ public class LibroController {
 	
 	@GetMapping(value = "/user/libriUser")
 	public String getUserLibri(Model model) {
-		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		Credentials credentials = credentialsService.getCredentials(user.getUsername());
-		model.addAttribute("user", credentials.getUser());
-		model.addAttribute("libri", this.libroRepository.findAll());
+//		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		Credentials credentials = credentialsService.getCredentials(user.getUsername());
+//		model.addAttribute("user", credentials.getUser());
+//		model.addAttribute("libri", this.libroRepository.findAll());
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	    String email = null;
+
+	    if (principal instanceof OidcUser) {
+	        email = ((OidcUser) principal).getEmail(); // login con Google
+	    } else if (principal instanceof UserDetails) {
+	        email = ((UserDetails) principal).getUsername(); // login classico
+	    } else {
+	        throw new IllegalStateException("Tipo di autenticazione non riconosciuto: " + principal.getClass());
+	    }
+
+	    Credentials credentials = credentialsService.getCredentials(email);
+	    if (credentials == null) {
+	        return "redirect:/registerGoogle"; // o altra gestione
+	    }
+
+	    model.addAttribute("user", credentials.getUser());
+	    model.addAttribute("libri", this.libroRepository.findAll());
 		return "user/libriUser.html";
+	}
+	
+	@GetMapping("user/indexUser")
+	public String indexUser(Model model) {
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	    String email = null;
+
+	    if (principal instanceof OidcUser) {
+	        email = ((OidcUser) principal).getEmail(); // login con Google
+	    } else if (principal instanceof UserDetails) {
+	        email = ((UserDetails) principal).getUsername(); // login classico
+	    } else {
+	        throw new IllegalStateException("Tipo di utente non supportato: " + principal.getClass());
+	    }
+
+	    Credentials credentials = credentialsService.getCredentials(email);
+	    if (credentials == null) {
+	        return "redirect:/registerGoogle"; // se utente Google non è ancora nel DB
+	    }
+
+	    model.addAttribute("user", credentials.getUser());
+	    model.addAttribute("username", credentials.getUsername());
+	    return "user/indexUser.html";
 	}
 	
 	@GetMapping("/user/libroUser/{id}")

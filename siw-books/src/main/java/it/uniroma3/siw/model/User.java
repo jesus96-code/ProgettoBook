@@ -18,13 +18,10 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@NotBlank
 	private String name;
 	
-	@NotBlank
 	private String surname;
 	
-	@NotBlank
 	private String email;
 	
 	@OneToMany

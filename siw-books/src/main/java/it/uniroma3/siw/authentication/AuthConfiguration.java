@@ -12,6 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import it.uniroma3.siw.service.CustomOidcUserService;
+
 import javax.sql.DataSource;
 
 import static it.uniroma3.siw.model.Credentials.ADMIN_ROLE;
@@ -31,6 +33,9 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
   @Autowired
   DataSource datasource;
   
+  @Autowired
+  private CustomOidcUserService customOidcUserService;
+  
   /**
   * Questo metodo contiene le impostazioni della configurazione
   * di autenticatzione e autorizzazione.
@@ -42,7 +47,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
     .authorizeRequests()
     // chiunque (autenticato o no) può accedere alle pagine:
      // index, login, register, ai css e alle immagini
-    .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/register", "/css/**", "/images/**", "/favicon.ico", 
+    .antMatchers(HttpMethod.GET, "/", "/index", "/login", "/register", "/css/**", "/images/**", "/favicon.ico", "/public/**",
     		"/libri/**", "/autori/**", "/review/**", "/libro/**", "/autore/**", "/chiSiamo", "/contattaci").permitAll()  //Utente occasionali
     .antMatchers(HttpMethod.GET, "/review/**").permitAll()
     // chiunque (autenticato o no) può mandare richieste POST agli url per login e register 
@@ -74,7 +79,17 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
     .invalidateHttpSession(true)
     .deleteCookies("JSESSIONID")
     .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-    .clearAuthentication(true).permitAll();
+    .clearAuthentication(true).permitAll()
+    .and()
+    
+    .oauth2Login()
+    .loginPage("/login")
+    .userInfoEndpoint()
+        .oidcUserService(customOidcUserService)
+        .and()
+    .defaultSuccessUrl("/user/indexUser", true);// <== reindirizza utente loggato
+	
+    
   }
   
   /**
