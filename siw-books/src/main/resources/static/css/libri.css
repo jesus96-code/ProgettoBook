@@ -38,6 +38,10 @@ header a:hover {
     height: auto;
 }
 
+.home {
+	text-align: center;
+}
+
 /* Link home */
 a[href="/"] {
     display: inline-block;

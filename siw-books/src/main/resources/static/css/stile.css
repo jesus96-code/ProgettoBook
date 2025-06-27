@@ -74,6 +74,10 @@ div a:hover {
     text-decoration: underline;
 }
 
+div {
+	text-align: center;
+}
+
 .aggiungi{
 	text-align: center;
 }
