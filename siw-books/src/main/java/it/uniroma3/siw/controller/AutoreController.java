@@ -1,5 +1,7 @@
 package it.uniroma3.siw.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import it.uniroma3.siw.model.Autore;
 import it.uniroma3.siw.model.Libro;
@@ -71,10 +74,11 @@ public class AutoreController {
 	
 	@PostMapping(value="/admin/updateAutore/{autoreId}")
 	public String updateAutore(@ModelAttribute("autore") Autore newAutore, @PathVariable("autoreId") Long autoreId, Model model) {
-		Autore oldAutore = this.autoreService.getAutoreById(autoreId);
+		Autore oldAutore = this.autoreService.getAutoreById(autoreId); // prende l'id del vecchio autore
 		Autore autore = this.autoreService.updateAutore(oldAutore, newAutore);
 		this.autoreService.saveAutore(autore);
 		model.addAttribute("autore", autore);
 		return "admin/formUpdateAutore.html";
 	}
+
 }

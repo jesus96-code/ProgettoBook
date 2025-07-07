@@ -28,7 +28,7 @@ public class Autore {
 	
 	private LocalDate dataMorte;
 	
-	private String nazionalità;
+	private String nazionalita;
 	
 	private String fotografia;
 	
@@ -67,12 +67,12 @@ public class Autore {
 		this.dataMorte = dataMorte;
 	}
 
-	public String getNazionalità() {
-		return nazionalità;
+	public String getNazionalita() {
+		return nazionalita;
 	}
 
-	public void setNazionalità(String nazionalità) {
-		this.nazionalità = nazionalità;
+	public void setNazionalita(String nazionalita) {
+		this.nazionalita = nazionalita;
 	}
 
 	public String getFotografia() {

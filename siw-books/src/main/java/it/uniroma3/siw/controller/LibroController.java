@@ -52,8 +52,8 @@ public class LibroController {
 	
 	// Aggiunge un nuovo libro
 	@GetMapping(value="/admin/formNewLibro")
-	public String formNewLibro(Model model) {
-		model.addAttribute("libro", new Libro());
+	public String formNewLibro(Model model) { //model è un parametro passato da Spring per passare dati dal controller alla vista
+		model.addAttribute("libro", new Libro()); //aggiunge un oggetto 'libro' al model
 		return "admin/formNewLibro.html"; //il valore di ritorno che verrà mostrato quando viene soddisfata la richiesta
 	}
 	

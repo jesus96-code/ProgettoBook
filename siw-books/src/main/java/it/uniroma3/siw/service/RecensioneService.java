@@ -32,14 +32,14 @@ public class RecensioneService {
 	@Autowired
 	private RecensioneRepository recensioneRepository;
 
-	@Transactional
+	@Transactional  //garantisce che tutte le operazioni nel metodo vengano eseguite come un'unica transazione
 	public void deteteRecensione(Long recensioneId) {
 		Recensione recensione = this.getRecensioneById(recensioneId);
 		Libro libro = recensione.getLibro();
 		recensione.getRecensore().getRecensioni().remove(recensione);
 		recensione.getLibro().getRecensioni().remove(recensione);
 		this.libroRepository.save(libro);
-		this.rencesioneRepository.delete(recensione);
+		this.recensioneRepository.delete(recensione);
 	}
 	
 	@Transactional 

@@ -16,10 +16,10 @@ public class LibroValidator implements Validator{
 	
 	@Override
 	public void validate(Object o, Errors errors) {
-		Libro libro = (Libro) o;
+		Libro libro = (Libro) o; 
 		if(libro.getTitolo() != null && libro.getAnnoPubblicazione() != null
 				&& libroRepository.existsByTitoloAndAnnoPubblicazione(libro.getTitolo(),libro.getAnnoPubblicazione())) {
-			errors.reject("movie.duplicate");
+			errors.reject("libro.duplicate");
 		}
 	}
 	

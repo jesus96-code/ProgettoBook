@@ -19,4 +19,7 @@ public interface LibroRepository extends CrudRepository<Libro, Long>{
 	
 	//metodo che ordina i film in base al titolo
 	public List<Libro> findByOrderByTitoloAsc();
+	
+	public List<Libro> findAll();
+	
 }
