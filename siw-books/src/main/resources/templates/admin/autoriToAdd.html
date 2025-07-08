@@ -3,7 +3,7 @@
 
 <head>
 	<title>Scelta autori</title>
-	<link rel="stylesheet" href="/css/updateActors.css" />
+	<link rel="stylesheet" href="/css/manageAutori.css" />
 </head>
 
 <body>
@@ -21,7 +21,7 @@
 	<h1 th:text="'Autori del film ' + ${libro.titolo}"></h1>
 	
 	<div  class="attore">
-	<div class="vuoto" th:if="${libro.autori.isEmpty()}">Non ci sono autori per questo film</div>
+	<div class="vuoto" th:if="${libro.autori.isEmpty()}">Non ci sono autori per questo libro</div>
 		<ul>
 			<li th:each="autore : ${libro.autori}">
 				<span th:text="${autore.nome}+' '+${autore.cognome}"></span>

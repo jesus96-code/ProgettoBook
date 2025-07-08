@@ -19,8 +19,7 @@
 	<div><a href="/"><img src="/images/logo-siw.png" width="50%"/></a></div>
 	<h1>Cerca libro per anno</h1>
 	<form th:action="@{/searchLibri}" method="post">
-		<div>Anno: <input type="text" th:value="${annoPubblicazione}" name="annoPubblicazione" />
-		</div>
+		<div>Anno: <input type="text" th:value="${annoPubblicazione}" name="annoPubblicazione" /></div>
 		<div><input type="submit" /></div>
 	</form>
 </body>

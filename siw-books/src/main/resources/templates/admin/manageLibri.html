@@ -26,7 +26,7 @@
 			<span th:text="${libro.titolo} + ' (' + ${libro.annoPubblicazione} + ')'">Up! (2000)</span>
 			<a th:href="@{'/admin/formUpdateLibro' + '/' + ${libro.id}}">Aggiorna</a>
 			<form th:action="@{'/admin/deleteLibro/' + ${libro.id}}" method="post" style="display:inline">
-    			<button type="submit" onclick="confirm('Sei sicuro di voler eliminare questo libro?')">Elimina</button>
+    			<button type="submit">Elimina</button>
 			</form>
 		</li>
 	</ul>
