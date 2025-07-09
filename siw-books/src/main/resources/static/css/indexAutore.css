@@ -43,7 +43,7 @@ h1 {
 div a {
     display: block;
     margin: 10px 0;
-    color: #007bff;
+    /*color: #007bff;*/
     text-decoration: none;
     font-weight: bold;
     text-align: center;

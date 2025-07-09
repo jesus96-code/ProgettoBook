@@ -174,6 +174,7 @@ public class LibroController {
 //		Credentials credentials = credentialsService.getCredentials(user.getUsername());
 //		model.addAttribute("user", credentials.getUser());
 //		model.addAttribute("libri", this.libroRepository.findAll());
+		//SecurityContextHolder per ottenere l'oggetto che rappresenta l'utente attualmente loggato
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	    String email = null;
 
@@ -185,9 +186,9 @@ public class LibroController {
 	        throw new IllegalStateException("Tipo di autenticazione non riconosciuto: " + principal.getClass());
 	    }
 
-	    Credentials credentials = credentialsService.getCredentials(email);
+	    Credentials credentials = credentialsService.getCredentials(email); //recupera le credenziali dal DB
 	    if (credentials == null) {
-	        return "redirect:/registerGoogle"; // o altra gestione
+	        return "redirect:/registerGoogle"; // reindirizza alla pagina di registrazione
 	    }
 
 	    model.addAttribute("user", credentials.getUser());
