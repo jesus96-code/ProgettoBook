@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.model.Credentials;
@@ -50,8 +51,19 @@ public class RecensioneService {
 	@Transactional
 	public Recensione newRecensione(@Valid Recensione recensione, Long libroId) {
 		Libro libro = this.libroRepository.findById(libroId).get();
-		UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		Credentials credentials = credentialsService.getCredentials(user.getUsername());
+//		UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
+		String usernameOrEmail;
+
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if (principal instanceof UserDetails) {
+		    usernameOrEmail = ((UserDetails) principal).getUsername();
+		} else if (principal instanceof OidcUser) {
+		    usernameOrEmail = ((OidcUser) principal).getEmail(); // oppure getAttribute("email")
+		} else {
+		    throw new IllegalStateException("Tipo utente non supportato");
+		}
+		Credentials credentials = credentialsService.getCredentials(usernameOrEmail);
 		recensione.setLibro(libro);
 		recensione.setRecensore(credentials.getUser());
 		this.recensioneRepository.save(recensione);

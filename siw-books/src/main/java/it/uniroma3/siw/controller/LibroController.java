@@ -170,10 +170,6 @@ public class LibroController {
 	
 	@GetMapping(value = "/user/libriUser")
 	public String getUserLibri(Model model) {
-//		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//		Credentials credentials = credentialsService.getCredentials(user.getUsername());
-//		model.addAttribute("user", credentials.getUser());
-//		model.addAttribute("libri", this.libroRepository.findAll());
 		//SecurityContextHolder per ottenere l'oggetto che rappresenta l'utente attualmente loggato
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	    String email = null;
