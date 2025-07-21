@@ -34,7 +34,7 @@ public class RecensioneService {
 	private RecensioneRepository recensioneRepository;
 
 	@Transactional  //garantisce che tutte le operazioni nel metodo vengano eseguite come un'unica transazione
-	public void deteteRecensione(Long recensioneId) {
+	public void deleteRecensione(Long recensioneId) {
 		Recensione recensione = this.getRecensioneById(recensioneId);
 		Libro libro = recensione.getLibro();
 		recensione.getRecensore().getRecensioni().remove(recensione);

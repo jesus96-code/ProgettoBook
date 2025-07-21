@@ -99,10 +99,7 @@ public class LibroController {
 	
 	@GetMapping("/libro")
 	public String getLibri(Model model) {
-//		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//		Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
 		model.addAttribute("libri", this.libroRepository.findAll());
-//		model.addAttribute("user", credentials.getUser());
 		return "libri.html";
 	}
 	
@@ -232,7 +229,7 @@ public class LibroController {
 	
 	@GetMapping(value="/admin/deleteRecensione/{recensioneId}/{libroId}")
 	public String deleteRecensione(@PathVariable("recensioneId") Long recensioneId, @PathVariable("libroId") Long libroId, Model model){
-		this.recensioneService.deteteRecensione(recensioneId);
+		this.recensioneService.deleteRecensione(recensioneId);
 		Libro libro = this.libroService.getLibroById(libroId);
 		model.addAttribute("libro", libro);
 		model.addAttribute("recensione", libro.getRecensioni());
