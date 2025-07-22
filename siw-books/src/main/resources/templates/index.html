@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<title>
@@ -12,10 +12,10 @@
 	<header>
 		<div th:if="${#request.userPrincipal}">
 			<span th:text="${#request.userPrincipal.principal.username}"></span>
-			<a href="/logout">Logout</a>
+			<a th:href="/logout">Logout</a>
 		</div>
 		<div th:unless="${#request.userPrincipal}">
-			<a href="/login">Login</a>
+			<a th:href="/login">Login</a>
 		</div>
 	</header>
 	
@@ -23,10 +23,10 @@
 		<div class = "logo"><img src="/images/logo-siw.png" width="50%" /></div>
 		<h1>Consulta l'archivio</h1>
 		<div>
-			<a href="/libro">Elenco Libro</a>
+			<a th:href="/libro">Elenco Libro</a>
 		</div>
 		<div>
-			<a href="/autore">Elenco Autori</a>
+			<a th:href="/autore">Elenco Autori</a>
 		</div>
 	</main>
 	

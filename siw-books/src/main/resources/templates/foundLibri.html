@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<title>Libro</title>
@@ -10,19 +10,19 @@
 	<header>
 		<div th:if="${#request.userPrincipal}">
 			<span th:text="${#request.userPrincipal.principal.username}"></span>
-			<a href="/logout">Logout</a>
+			<a th:href="/logout">Logout</a>
 		</div>
 		<div th:unless="${#request.userPrincipal}">
-			<a href="/login">Login</a>
+			<a th:href="/login">Login</a>
 		</div>
 	</header>
 
-	<div><a href="/"><img src="/images/logo-siw.png" width="50%"/></a></div>
+	<div><a th:href="/"><img src="/images/logo-siw.png" width="50%"/></a></div>
 		<h1>Libro che soddisfano i requisiti</h1>
 		<div th:if="${libri.isEmpty()}">Non ci sono libri che soddisfano i requisiti</div>
 		<ul th:if="${!libri.isEmpty()}">
 			<li th:each="libro : ${libri}">
-				<a href="libro.html" th:href="@{'/libro' + '/' + ${libro.id}}"
+				<a th:href="libro.html" th:href="@{'/libro' + '/' + ${libro.id}}"
 					th:text="${libro.titolo} + ' (' + ${libro.annoPubblicazione} +')'">Up! (2000)</a>
 			</li>
 		</ul>

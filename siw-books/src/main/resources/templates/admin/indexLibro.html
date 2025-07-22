@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<title>
@@ -22,19 +22,19 @@
 	<div><a href="/"><img src="/images/logo-siw.png" width="50%" /></a></div>
 	<h1>Gestione Libro</h1>
 	<div>
-		<a href="/admin/formNewLibro">Inserisci i dati di un libro</a>
+		<a th:href="/admin/formNewLibro">Inserisci i dati di un libro</a>
 	</div>
 	<div>
-		<a href="/admin/manageLibri">Gestisci i libri</a>
+		<a th:href="/admin/manageLibri">Gestisci i libri</a>
 	</div>
 	<div>
-		<a href="/formSearchLibri">Cerca libro per anno</a>
+		<a th:href="/formSearchLibri">Cerca libro per anno</a>
 	</div>
 </body>
 
 <footer>
 	<div>
-		<a href="/">
+		<a th:href="/">
 			<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Torna indietro</button>
 		</a>
 	</div>

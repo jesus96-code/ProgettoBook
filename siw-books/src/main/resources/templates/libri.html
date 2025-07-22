@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 		<title>Libro</title>
@@ -10,10 +10,10 @@
 		<header>
 			<div th:if="${#request.userPrincipal}">
 				<span th:text="${#request.userPrincipal.principal.username}"></span>
-				<a href="/logout">Logout</a>
+				<a th:href="/logout">Logout</a>
 			</div>
 			<div th:unless="${#request.userPrincipal}">
-				<a href="/login">Login</a>
+				<a th:href="/login">Login</a>
 			</div>
 		</header>
 	
@@ -30,6 +30,11 @@
 		
 		<div th:insert="fragments/footer :: footer"></div>
 	</body>
-	
+		
+	<div class="button">
+		<a th:href="/">
+			<button class="btn btn-outline-primary my-2 my-sm-0" type= "submit">Torna indietro</button>
+		</a>
+	</div>
 
 </html>

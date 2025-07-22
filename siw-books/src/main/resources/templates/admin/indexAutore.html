@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<title>
 			SiwBook - Gestione Autori
@@ -10,27 +10,27 @@
 	<header>
 		<div th:if="${#request.userPrincipal}">
 			<span th:text="${#request.userPrincipal.principal.username}"></span>
-			<a href="/logout">Logout</a>
+			<a th:href="/logout">Logout</a>
 		</div>
 		<div th:unless="${#request.userPrincipal}">
-			<a href="/login">Login</a>
+			<a th:href="/login">Login</a>
 		</div>
 	</header>
 
-		<div><a href="/"><img src="/images/logo-siw.png" width="50%"/></a></div>
+		<div><a th:href="/"><img src="/images/logo-siw.png" width="50%"/></a></div>
 		<h1>Gestione Autori</h1>
 		<div>
-			<a href="/admin/formNewAutore">Inserisci i dati di un autore</a>
+			<a th:href="/admin/formNewAutore">Inserisci i dati di un autore</a>
 		</div>
 		<div>
-			<a href="/admin/manageAutori">Gestisci gli autori</a>
+			<a th:href="/admin/manageAutori">Gestisci gli autori</a>
 		</div>
 		<div>
-			<a href="/autore">Autori</a>
+			<a th:href="/autore">Autori</a>
 		</div>
 		
 		<div>
-			<a href="/">
+			<a th:href="/">
 				<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Torna indietro</button>			
 			</a>
 		</div>

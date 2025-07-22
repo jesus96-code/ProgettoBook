@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 	    <title>SiwBook - Homepage</title>
 	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -14,16 +14,6 @@
 
 	<body>
 		<header>
-		    <!--  <div th:if="${#request.userPrincipal}">
-		        <span th:text="${#request.userPrincipal.principal.username}"></span>
-		        <a href="/logout">
-		            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Logout</button>
-		        </a>
-		    </div>
-		    <div th:unless="${#request.userPrincipal}">
-		        <a href="/login"><button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Login</button>
-		        </a>
-		    </div>-->
 		    <div th:if="${#request.userPrincipal}">
 		        <!-- Se è un utente OAuth2 (Google) -->
 		        <span th:if="${#request.userPrincipal.principal instanceof T(org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser)}"
@@ -52,11 +42,11 @@
 		    Qui puoi consultare i libri e gli autori nel database:</h1>
 		<h2>Consulta l'archivio</h2>
 		<div class = "menu">
-		    <a href="/user/libriUser">
+		    <a th:href="/user/libriUser">
 		        <!-- <img src="images/movie-icon.png" alt="film logo" /> -->
 		        <span>Elenco libri</span>
 		    </a>
-		    <a href="/autore">
+		    <a th:href="/autore">
 		        <!-- <img src="images/actor-icon.png" alt="artist logo" /> -->
 		        <span>Elenco autori</span>
 		    </a>

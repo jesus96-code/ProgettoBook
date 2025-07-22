@@ -15,6 +15,7 @@ import it.uniroma3.siw.model.Libro;
 import it.uniroma3.siw.model.Recensione;
 import it.uniroma3.siw.repository.AutoreRepository;
 import it.uniroma3.siw.repository.LibroRepository;
+import it.uniroma3.siw.repository.RecensioneRepository;
 
 @Service
 public class LibroService {
@@ -27,6 +28,9 @@ public class LibroService {
 	
 	@Autowired
 	private AutoreRepository autoreRepository;
+	
+	@Autowired
+	private RecensioneRepository recensioneRepository;
 
 	@Autowired
 	private AutoreService autoreService;
@@ -100,7 +104,5 @@ public class LibroService {
 	public void deleteById(Long libroId) {
 		this.libroRepository.deleteById(libroId);
 	}
-	
-	
 	
 }

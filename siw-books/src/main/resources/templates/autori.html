@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<title>Autori</title>
@@ -17,7 +17,7 @@
 		        <span th:if="${#request.userPrincipal.principal instanceof T(org.springframework.security.core.userdetails.User)}"
 		              th:text="${#request.userPrincipal.name}">[Utente Locale]</span>
 		
-		        <a href="/logout">
+		        <a th:href="/logout">
 		            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Logout</button>
 		        </a>
 			    </div>
@@ -40,7 +40,7 @@
 	</ul>
 	
 	<div>
-		<a href="/">
+		<a th:href="/">
   			<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Torna indietro</button>
   		</a>
 	</div>

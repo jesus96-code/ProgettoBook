@@ -8,14 +8,6 @@
 
 <body>
     <header class="main-header">
-        <!--  <div class="auth-info" th:if="${#request.userPrincipal}">
-            <span th:text="${#request.userPrincipal.principal.username}"></span>
-            <a href="/logout">Logout</a>
-        </div>
-        <div class="auth-info" th:unless="${#request.userPrincipal}">
-            <a href="/login">Login</a>
-        </div>-->
-        
         <div th:if="${#request.userPrincipal}">
 		        <!-- Se è un utente OAuth2 (Google) -->
 		        <span th:if="${#request.userPrincipal.principal instanceof T(org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser)}"
@@ -25,20 +17,20 @@
 		        <span th:if="${#request.userPrincipal.principal instanceof T(org.springframework.security.core.userdetails.User)}"
 		              th:text="${#request.userPrincipal.name}">[Utente Locale]</span>
 		
-		        <a href="/logout">
+		        <a th:href="/logout">
 		            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Logout</button>
 		        </a>
 			    </div>
 			
 			    <div th:unless="${#request.userPrincipal}">
-			        <a href="/login">
+			        <a th:href="/login">
 			            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Login</button>
 			        </a>
 			</div>
     </header>
 
     <div class="logo-container">
-        <a href="/"><img src="/images/logo-siw.png" alt="Logo SiwBook" class="logo" /></a>
+        <a th:href="/"><img src="/images/logo-siw.png" alt="Logo SiwBook" class="logo" /></a>
     </div>
 
     <main class="content">
@@ -51,7 +43,7 @@
         </ul>
 
         <div class="back-link">
-            <a href="/"><button>Torna alla homepage</button></a>
+            <a th:href="/"><button>Torna alla homepage</button></a>
         </div>
     </main>
 

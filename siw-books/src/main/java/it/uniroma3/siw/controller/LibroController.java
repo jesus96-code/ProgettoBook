@@ -68,7 +68,7 @@ public class LibroController {
 	public String updateAutori(@PathVariable("id") Long id, Model model) {
 		List<Autore> autoriToAdd = this.autoriToAdd(id);
 		model.addAttribute("autoriToAdd", autoriToAdd);
-		model.addAttribute("libro", this.libroRepository.findById(id).get());
+		model.addAttribute("libro", this.libroService.getLibroById(id));
 		return "admin/autoriToAdd.html";
 	}
 	
@@ -88,7 +88,7 @@ public class LibroController {
 	
 	@GetMapping(value="/admin/manageLibri")
 	public String manageLibri(Model model) {
-		model.addAttribute("libri", this.libroRepository.findAll());
+		model.addAttribute("libri", this.libroService.getTuttiLibri());
 		return "admin/manageLibri.html";
 	}
 	
@@ -99,7 +99,7 @@ public class LibroController {
 	
 	@GetMapping("/libro")
 	public String getLibri(Model model) {
-		model.addAttribute("libri", this.libroRepository.findAll());
+		model.addAttribute("libri", this.libroService.getTuttiLibri());
 		return "libri.html";
 	}
 	
@@ -221,7 +221,7 @@ public class LibroController {
 	
 	@GetMapping(value="/admin/recensioniInLibro/{libroId}")
 	public String addRecensioneToLibro(@PathVariable("libroId") Long libroId, Model model) {
-		Libro libro = this.libroRepository.findById(libroId).get();
+		Libro libro = this.libroService.getLibroById(libroId);
 		model.addAttribute("libro", libro);
 		model.addAttribute("recensione", new Recensione());
 		return "admin/newRecensione.html";
