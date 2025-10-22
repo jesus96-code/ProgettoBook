@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Libri del [[${anno}]]</title>
+</head>
+<body>
+
+    <h1>Libri pubblicati nel [[${anno}]]</h1>
+
+    <ul>
+        <li th:each="libro : ${libri}">
+            <a th:href="@{'/libri/' + ${libro.id}}" th:text="${libro.titolo}">Titolo</a>
+        </li>
+    </ul>
+
+    <a th:href="@{/}">Torna alla home</a>
+
+</body>
+</html>

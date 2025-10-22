@@ -17,7 +17,7 @@
 		        <span th:if="${#request.userPrincipal.principal instanceof T(org.springframework.security.core.userdetails.User)}"
 		              th:text="${#request.userPrincipal.name}">[Utente Locale]</span>
 		
-		        <a th:href="/logout">
+		        <a href="/logout">
 		            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Logout</button>
 		        </a>
 			    </div>
@@ -30,7 +30,7 @@
     </header>
 
     <div class="logo-container">
-        <a th:href="/"><img src="/images/logo-siw.png" alt="Logo SiwBook" class="logo" /></a>
+        <a href="/"><img src="/images/logo-siw.png" alt="Logo SiwBook" class="logo" /></a>
     </div>
 
     <main class="content">
@@ -43,7 +43,7 @@
         </ul>
 
         <div class="back-link">
-            <a th:href="/"><button>Torna alla homepage</button></a>
+            <a href="/"><button>Torna alla homepage</button></a>
         </div>
     </main>
 

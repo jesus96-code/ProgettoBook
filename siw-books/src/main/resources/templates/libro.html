@@ -9,19 +9,22 @@
 	<header>
 		<div th:if="${#request.userPrincipal}">
 			<span th:text="${#request.userPrincipal.principal.username}"></span>
-			<a th:href="/logout">Logout</a>
+			<a href="/logout">Logout</a>
 		</div>
 		<div th:unless="${#request.userPrincipal}">
-			<a th:href="/login">Login</a>
+			<a th:href=@{/login}>Login</a>
 		</div>
 	</header>
 
 	<div><img src="/images/logo-siw.png" width="50%"/></div>
-	<div><a th:href="/"> Home </a></div>
+	<div><a th:href=@{/}> Home </a></div>
     <h1>Dettagli Libro: </h1>
     <div th:if="${libro}">
         <div><b>Titolo: </b><span th:text="${libro.titolo}">Up!</span></div>
-        <div><b>Anno di uscita:</b><span th:text="${libro.annoPubblicazione}">2000</span></div>
+        <div>
+    		<b>Anno di uscita:</b>
+    		<a th:href="@{'/anno/' + ${libro.annoPubblicazione}}" th:text="${libro.annoPubblicazione}">2000</a>
+		</div>		
         
         <div th:if = "${libro.autori}"><b>Autori:</b>
 	       	<span th:each="autore: ${libro.autori}">
@@ -63,7 +66,7 @@
   
   <footer>
     <div class="footer_div" style="margin-bottom: 70px;">
-        <a th:href="/libro">
+        <a th:href=@{/libro}>
             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Torna indietro</button>
         </a>
     </div>

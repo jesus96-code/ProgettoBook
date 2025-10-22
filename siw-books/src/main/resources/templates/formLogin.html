@@ -15,12 +15,12 @@
 			<a th:href="/logout">Logout</a>
 		</div>
 		<div th:unless="${#request.userPrincipal}">
-			<a th:href="/login">Login</a>
+			<a th:href=@{/login}>Login</a>
 		</div>
 	</header>
 
 	<div>
-		<a th:href="/"><img src="/images/logo-siw.png" width="50%"/></a>
+		<a th:href=@{/}><img src="/images/logo-siw.png" width="50%"/></a>
 	</div>
 	<h1>Login</h1>
 	<form th:action="@{/login}" method="POST">
@@ -42,7 +42,7 @@
 	
 	<div>
 		<p>Oppure accedi con:</p>
-			<a th:href="/oauth2/authorization/google" class="btn btn-primary">Login con Google</a>
+			<a th:href=@{/oauth2/authorization/google} class="btn btn-primary">Login con Google</a>
 	</div>
 	
 	<div>

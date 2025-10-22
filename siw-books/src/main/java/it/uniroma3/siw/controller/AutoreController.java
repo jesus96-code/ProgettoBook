@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import it.uniroma3.siw.model.Autore;
 import it.uniroma3.siw.model.Libro;
 import it.uniroma3.siw.repository.AutoreRepository;
+import it.uniroma3.siw.repository.LibroRepository;
 import it.uniroma3.siw.service.AutoreService;
 
 @Controller
@@ -24,6 +25,9 @@ public class AutoreController {
 	
 	@Autowired
 	private AutoreService autoreService;
+	
+	@Autowired
+	private LibroRepository libroRepository;
 	
 	@GetMapping(value = "/admin/indexAutore")
 	public String indexAutore() {
@@ -79,6 +83,14 @@ public class AutoreController {
 		this.autoreService.saveAutore(autore);
 		model.addAttribute("autore", autore);
 		return "admin/formUpdateAutore.html";
+	}
+	
+	@GetMapping("/anno/{anno}")
+	public String getLibriPerAnno(@PathVariable int anno, Model model) {
+	    List<Libro> libri = libroRepository.findByAnnoPubblicazione(anno);
+	    model.addAttribute("libri", libri);
+	    model.addAttribute("anno", anno);
+	    return "libri-per-anno"; // nome corretto del file .html
 	}
 
 }
